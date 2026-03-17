@@ -328,6 +328,9 @@
     <button class="menu-btn" onclick="showHow()">
       <span class="btn-icon">📖</span> How to Play
     </button>
+    <button class="menu-btn" onclick="showCredits()">
+      <span class="btn-icon">🎖</span> Credits
+    </button>
   </div>
 
   <div class="menu-stats">
@@ -375,6 +378,48 @@
       <div class="how-icon">📈</div>
       <div class="how-text">Waves get harder. Your score climbs with time. Survive as long as possible.</div>
     </div>
+    <br>
+    <button class="menu-btn" onclick="showMenu()">← Back</button>
+  </div>
+</div>
+
+<!-- ═══════════════ CREDITS ═══════════════ -->
+<div id="creditsScreen" class="screen hidden">
+  <div class="how-card" style="text-align:center;">
+    <div class="how-title">Credits</div>
+
+    <div class="how-row" style="justify-content:center; flex-direction:column; align-items:center; gap:6px;">
+      <div class="how-icon" style="font-size:28px;">📦</div>
+      <div class="how-text" style="text-align:center;">
+        <strong>Published by</strong><br>
+        <span class="red" style="font-size:18px; letter-spacing:2px;">@fypsiah</span>
+      </div>
+    </div>
+
+    <div class="how-row" style="justify-content:center; flex-direction:column; align-items:center; gap:6px;">
+      <div class="how-icon" style="font-size:28px;">💻</div>
+      <div class="how-text" style="text-align:center;">
+        <strong>Script written by</strong><br>
+        <span class="gold" style="font-size:18px; letter-spacing:2px;">claude.ai</span>
+      </div>
+    </div>
+
+    <div class="how-row" style="justify-content:center; flex-direction:column; align-items:center; gap:6px;">
+      <div class="how-icon" style="font-size:28px;">🎨</div>
+      <div class="how-text" style="text-align:center;">
+        <strong>Graphics by</strong><br>
+        <span class="red" style="font-size:18px; letter-spacing:2px;">@fypsiah</span>
+      </div>
+    </div>
+
+    <div class="how-row" style="justify-content:center; flex-direction:column; align-items:center; gap:6px; border-bottom:none;">
+      <div class="how-icon" style="font-size:28px;">💡</div>
+      <div class="how-text" style="text-align:center;">
+        <strong>Content &amp; Ideas by</strong><br>
+        <span class="red" style="font-size:18px; letter-spacing:2px;">@fypsiah</span>
+      </div>
+    </div>
+
     <br>
     <button class="menu-btn" onclick="showMenu()">← Back</button>
   </div>
@@ -490,13 +535,17 @@ document.addEventListener('keyup',  e => { keys[e.code] = false; });
 
 // ── Screens ──
 function showMenu() {
-  hide('deathScreen'); hide('howScreen');
+  hide('deathScreen'); hide('howScreen'); hide('creditsScreen');
   show('menuScreen');
   stopGame();
 }
 function showHow() {
   hide('menuScreen');
   show('howScreen');
+}
+function showCredits() {
+  hide('menuScreen');
+  show('creditsScreen');
 }
 function show(id) { document.getElementById(id).classList.remove('hidden'); }
 function hide(id) { document.getElementById(id).classList.add('hidden'); }
